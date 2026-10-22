@@ -10,7 +10,7 @@ from django.contrib.auth import login, logout, authenticate
 import logging
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
-# Create your views here.
+from .models import Course, Enrollment, Question, Choice, Submission
 
 
 def registration_request(request):
@@ -103,7 +103,7 @@ def enroll(request, course_id):
     return HttpResponseRedirect(reverse(viewname='onlinecourse:course_details', args=(course.id,)))
 
 
-# <HINT> Create a submit view to create an exam submission record for a course enrollment,
+
 # you may implement it based on following logic:
          # Get user and course object, then get the associated enrollment object created when the user enrolled the course
          # Create a submission object referring to the enrollment
